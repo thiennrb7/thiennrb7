@@ -1,0 +1,23 @@
+wait(3)
+local lplr = game.Players.LocalPlayer
+local ldata = game.ReplicatedStorage:WaitForChild("Datas"):WaitForChild(lplr.UserId)
+if lplr.PlayerGui:FindFirstChild("Start") then
+    game:GetService("ReplicatedStorage").Package.Events.Start:InvokeServer()
+    if workspace.Others:FindFirstChild("Title") then
+        workspace.Others.Title:Destroy();
+    end;
+    local cam = game.Workspace.CurrentCamera;
+    cam.CameraType = Enum.CameraType.Custom;
+    cam.CameraSubject = lplr.Character.Humanoid;
+    _G.Ready = true
+    game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, true);
+    lplr.PlayerGui:WaitForChild("Main").Enabled = true
+    if lplr.PlayerGui:FindFirstChild("Start") then
+        lplr.PlayerGui.Start:Destroy()
+    end
+    lplr.PlayerGui.Main.bruh.Enabled = false
+    lplr.PlayerGui.Main.bruh.Enabled = true
+end
+
+
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/garriva06/listavlanka/refs/heads/main/autorebits.lua')))()
