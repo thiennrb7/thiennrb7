@@ -1,0 +1,4 @@
+game.Players.PlayerAdded:Connect(function(player) --player is added
+	wait(1)
+	player:Kick("You have been banned from this game") -- put a reason
+end)
